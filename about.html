@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Η ιστορία μας — Local Coffee House</title>
+<meta name="description" content="Η ιστορία πίσω από το Local Coffee House: μια γειτονιακή καφετέρια στην Πλατεία Ελευθερίας της Παλλήνης, με καλό καφέ και έναν ήσυχο χώρο γεμάτο πράσινο.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#b7392c">
+<link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+<link rel="apple-touch-icon" href="assets/logo.jpg">
+<link rel="canonical" href="https://www.localcoffeehouse.gr/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Local Coffee House">
+<meta property="og:title" content="Η ιστορία μας — Local Coffee House">
+<meta property="og:description" content="Η ιστορία πίσω από το Local Coffee House: μια γειτονιακή καφετέρια στην Πλατεία Ελευθερίας της Παλλήνης, με καλό καφέ και έναν ήσυχο χώρο γεμάτο πράσινο.">
+<meta property="og:url" content="https://www.localcoffeehouse.gr/about.html">
+<meta property="og:locale" content="el_GR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Η ιστορία μας — Local Coffee House">
+<meta name="twitter:description" content="Η ιστορία πίσω από το Local Coffee House: μια γειτονιακή καφετέρια στην Πλατεία Ελευθερίας της Παλλήνης, με καλό καφέ και έναν ήσυχο χώρο γεμάτο πράσινο.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5efe1;
+  --paper-2:#efe6d3;
+  --card:#fffcf4;
+  --ink:#231c13;
+  --ink-soft:#5a5040;
+  --olive:#3c4a2e;
+  --olive-dark:#28321d;
+  --brick:#b7392c;
+  --brick-dark:#8e2c22;
+  --clay:#c98b54;
+  --green:#4c7a3a;
+  --amber:#b8862f;
+  --line: rgba(35,28,19,0.14);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 16px 36px -18px rgba(35,28,19,0.28);
+  --shadow-sm: 0 8px 20px -12px rgba(35,28,19,0.22);
+  --maxw: 1180px;
+  --nav-h: 60px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth;} }
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Work Sans', system-ui, sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{ font-family:'Fraunces', Georgia, serif; font-weight:500; margin:0; color:var(--ink); }
+a{color:inherit;}
+img{max-width:100%; display:block;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
+:focus-visible{outline:2px solid var(--brick); outline-offset:3px;}
+button{font-family:inherit;}
+
+.skip-link{
+  position:absolute; left:12px; top:-60px; z-index:200;
+  background:var(--ink); color:var(--paper); padding:12px 18px;
+  border-radius:var(--radius-sm); text-decoration:none; font-size:14px; font-weight:600;
+  transition:top .15s ease;
+}
+.skip-link:focus{top:12px;}
+
+/* ---------- Placeholder art ---------- */
+.ph{ position:relative; overflow:hidden; border-radius:var(--radius); }
+.ph::after{
+  content:attr(data-label); position:absolute; left:14px; bottom:12px;
+  font-family:'Work Sans', sans-serif; font-size:11px; letter-spacing:.02em;
+  color:rgba(255,252,244,0.85); background:rgba(35,28,19,0.55); padding:5px 10px; border-radius:2px;
+}
+.ph-hero{background:
+  radial-gradient(120% 90% at 18% 20%, rgba(201,139,84,0.55), transparent 55%),
+  radial-gradient(90% 90% at 85% 75%, rgba(183,57,44,0.6), transparent 60%),
+  linear-gradient(155deg, #3c4a2e, #232a17 70%);
+}
+.ph-dish{background:
+  radial-gradient(100% 100% at 30% 25%, rgba(201,139,84,0.65), transparent 60%),
+  radial-gradient(90% 90% at 80% 80%, rgba(183,57,44,0.55), transparent 55%),
+  linear-gradient(160deg, #4a5636, #2a3320);
+}
+.fav-btn{
+  position:absolute; top:10px; right:10px; z-index:2; width:36px; height:36px; border-radius:50%;
+  background:rgba(35,28,19,0.5); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  color:#f3ede0; font-size:16px;
+}
+.fav-btn.active{color:var(--brick); background:rgba(255,252,244,0.92);}
+
+/* ---------- Header / nav (mobile-first: compact bar + slide-down panel) ---------- */
+header.site{
+  position:sticky; top:0; z-index:40; height:var(--nav-h);
+  border-bottom:1px solid var(--line);
+  display:flex; align-items:center;
+  /* NOTE: backdrop-filter must NOT live on this element: it would make
+     header the containing block for its position:fixed descendant
+     (nav.links), squashing the mobile menu panel to the header height
+     instead of the full viewport. It lives on ::before instead. */
+}
+header.site::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:rgba(245,239,225,0.94);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+}
+.nav{ display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; max-width:var(--maxw); margin:0 auto; padding:0 16px; }
+.brand{ display:flex; align-items:center; gap:9px; font-family:'Fraunces', serif; font-size:16px; font-weight:500; text-decoration:none; }
+.brand-mark{ width:32px; height:32px; border-radius:9px; overflow:hidden; flex-shrink:0; background:var(--ink); box-shadow:0 0 0 1px rgba(35,28,19,0.08); }
+.brand-mark img{ width:100%; height:100%; object-fit:cover; display:block; }
+.brand-text{ display:inline; font-size:12.5px; line-height:1.2; max-width:108px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.nav-actions{ display:flex; align-items:center; gap:8px; }
+.call-btn{
+  display:inline-flex; align-items:center; gap:6px; background:var(--olive); color:#fdf8ec;
+  padding:9px 14px; border-radius:var(--radius-sm); text-decoration:none; font-size:13.5px; font-weight:600;
+  white-space:nowrap; border:none; cursor:pointer;
+}
+.menu-toggle{ background:none; border:1px solid var(--line); border-radius:8px; cursor:pointer; padding:7px; width:38px; height:38px; display:flex; align-items:center; justify-content:center; }
+.menu-toggle span{ display:block; width:18px; height:2px; background:var(--ink); margin:4px 0; }
+
+nav.links{
+  position:fixed; inset:var(--nav-h) 0 0 0; background:var(--paper); z-index:39;
+  display:flex; flex-direction:column; padding:18px 20px 24px; gap:2px; overflow-y:auto;
+  transform:translateY(-6px); opacity:0; pointer-events:none; transition:opacity .18s ease, transform .18s ease;
+}
+nav.links.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
+nav.links a{
+  text-decoration:none; font-size:19px; font-family:'Fraunces', serif; color:var(--ink); padding:14px 4px;
+  border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center;
+}
+nav.links a[aria-current="page"]{ color:var(--brick); }
+nav.links .nav-order{ margin-top:16px; }
+
+@media (min-width:900px){
+  :root{ --nav-h:76px; }
+  .brand{ font-size:19px; }
+  .brand-mark{ width:38px; height:38px; }
+  .brand-text{ font-size:inherit; max-width:none; white-space:normal; overflow:visible; text-overflow:clip; }
+  .menu-toggle{ display:none; }
+  nav.links{
+    position:static; inset:auto; background:none; padding:0; gap:26px; flex-direction:row;
+    opacity:1; transform:none; pointer-events:auto; overflow:visible; flex:1; margin-left:40px;
+  }
+  nav.links a{ font-size:14.5px; font-family:'Work Sans', sans-serif; border-bottom:none; padding:0; }
+  nav.links a:hover{ color:var(--brick); }
+  nav.links a[aria-current="page"]{ position:relative; }
+  nav.links a[aria-current="page"]::after{ content:''; position:absolute; left:0; right:0; bottom:-24px; height:2px; background:var(--brick); }
+  nav.links .nav-order{ display:none; }
+  .call-btn{ padding:11px 20px; font-size:14px; }
+}
+
+/* ---------- Order panel (shared dialog, opened from any page) ---------- */
+.order-panel-overlay{ position:fixed; inset:0; background:rgba(20,16,10,0.5); display:none; z-index:110; align-items:flex-end; justify-content:center; }
+.order-panel-overlay.open{ display:flex; }
+@media (min-width:601px){ .order-panel-overlay{ align-items:center; } }
+.order-panel{ background:var(--card); width:100%; max-width:420px; border-radius:22px 22px 0 0; padding:24px 22px 28px; box-shadow:var(--shadow); }
+@media (min-width:601px){ .order-panel{ border-radius:var(--radius); } }
+.order-panel h2{ font-size:20px; margin-bottom:4px; }
+.order-panel .sub{ font-size:13.5px; color:var(--ink-soft); margin-bottom:18px; }
+.order-option{
+  display:flex; align-items:center; justify-content:space-between; gap:14px; padding:16px;
+  border:1px solid var(--line); border-radius:var(--radius-sm); text-decoration:none; color:var(--ink); margin-bottom:10px;
+}
+.order-option .oo-name{ font-weight:600; font-size:15px; }
+.order-option .oo-desc{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; }
+.order-option .oo-arrow{ color:var(--brick); font-size:18px; }
+.order-option.phone{ background:var(--olive); border-color:var(--olive); color:#fdf8ec; }
+.order-option.phone .oo-desc{ color:rgba(253,248,236,0.75); }
+.order-panel-close{ display:block; margin:6px auto 0; background:none; border:none; color:var(--ink-soft); font-size:13.5px; cursor:pointer; text-decoration:underline; padding:8px; }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:14px 22px; border-radius:var(--radius-sm);
+  text-decoration:none; font-size:15px; font-weight:600; border:1px solid transparent; cursor:pointer; transition:background .15s ease, transform .1s ease;
+}
+.btn-primary{ background:var(--brick); color:#fdf8ec; }
+.btn-primary:hover{ background:var(--brick-dark); }
+.btn-primary:active{ transform:scale(.98); }
+.btn-ghost{ border-color:var(--ink); color:var(--ink); background:none; }
+.btn-ghost:hover{ background:var(--ink); color:var(--paper); }
+.btn-block{ width:100%; }
+
+/* ---------- Hero (mobile-first: stacked, photo second) ---------- */
+.hero{ padding:28px 0 40px; }
+.eyebrow{ color:var(--brick); font-size:13.5px; font-weight:600; display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.eyebrow::before{ content:''; width:22px; height:1px; background:var(--brick); }
+.hero h1{ font-size:clamp(32px, 8vw, 44px); line-height:1.1; letter-spacing:-0.01em; }
+.hero h1 em{ font-style:italic; color:var(--brick); font-weight:500; }
+.hero p.lede{ margin-top:16px; max-width:46ch; font-size:16.5px; color:var(--ink-soft); line-height:1.6; }
+.hero-ctas{ display:flex; flex-direction:column; gap:10px; margin-top:24px; }
+.hero-media{ position:relative; margin-top:28px; }
+.hero-photo{ aspect-ratio:4/3; }
+.status-badge{
+  position:absolute; top:12px; left:12px; background:rgba(255,252,244,0.95); padding:8px 12px; border-radius:20px;
+  display:flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600;
+}
+.status-dot{ width:8px; height:8px; border-radius:50%; background:var(--green); flex-shrink:0; }
+.status-dot.closed{ background:var(--brick); }
+.status-dot.soon{ background:var(--amber); }
+.hero-stats{ display:flex; gap:0; margin-top:26px; padding-top:20px; border-top:1px solid var(--line); }
+.stat{ flex:1; text-align:left; }
+.stat b{ font-family:'Fraunces', serif; font-size:21px; display:block; font-weight:500; }
+.stat span{ font-size:11.5px; color:var(--ink-soft); }
+
+@media (min-width:900px){
+  .hero{ padding:56px 0 64px; }
+  .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center; }
+  .hero-ctas{ flex-direction:row; flex-wrap:wrap; }
+  .hero-ctas .btn{ width:auto; }
+  .hero-media{ margin-top:0; }
+  .hero-photo{ aspect-ratio:4/5; }
+  .hero-stats{ gap:28px; }
+  .stat{ flex:none; }
+}
+
+/* ---------- Section shell ---------- */
+section{ padding:44px 0; }
+.section-head{ max-width:640px; margin-bottom:28px; }
+.section-head h2{ font-size:clamp(24px,6vw,32px); line-height:1.15; }
+.section-head p{ margin-top:12px; color:var(--ink-soft); font-size:15.5px; }
+@media (min-width:900px){
+  section{ padding:76px 0; }
+  .section-head{ margin-bottom:40px; }
+  .section-head h2{ font-size:clamp(28px,3.6vw,38px); }
+  .section-head p{ font-size:16.5px; max-width:52ch; }
+}
+
+.section-cta{ margin-top:24px; }
+
+/* ---------- Today / featured dish cards ---------- */
+.today{ background:var(--olive); color:#f3ede0; }
+.today .section-head h2, .today .eyebrow{ color:#f3ede0; }
+.today .eyebrow::before{ background:#c98b54; }
+.today .section-head p{ color:rgba(243,237,224,0.75); }
+.today .btn-ghost{ border-color:rgba(243,237,224,0.6); color:#f3ede0; }
+.today .btn-ghost:hover{ background:#f3ede0; color:var(--olive-dark); }
+.today-note{
+  border:1px solid rgba(243,237,224,0.28); border-radius:var(--radius-sm); padding:14px 16px; font-size:13.5px;
+  color:rgba(243,237,224,0.85); margin-top:16px; max-width:640px;
+}
+.dish-grid{ display:grid; grid-template-columns:1fr; gap:18px; margin-top:28px; }
+.dish-card{
+  position:relative; background:rgba(243,237,224,0.06); border:1px solid rgba(243,237,224,0.16);
+  border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm);
+}
+.dish-card .ph{ aspect-ratio:16/10; }
+.dish-body{ padding:16px 18px 18px; }
+.dish-body h3{ font-size:18px; color:#f3ede0; font-weight:500; }
+.dish-tags{ display:flex; gap:7px; margin:9px 0; flex-wrap:wrap; }
+.tag{ font-size:11px; padding:4px 10px; border-radius:20px; border:1px solid rgba(243,237,224,0.3); color:rgba(243,237,224,0.85); }
+.dish-body p{ font-size:13.5px; color:rgba(243,237,224,0.72); margin:0; }
+@media (min-width:700px){ .dish-grid{ grid-template-columns:repeat(3,1fr); } }
+
+/* ---------- Menu / filters / search ---------- */
+.menu-toolbar{ display:flex; flex-direction:column; gap:14px; margin-bottom:26px; }
+.filters{ display:flex; gap:8px; flex-wrap:wrap; overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:2px; }
+.filter-btn{ background:none; border:1px solid var(--line); color:var(--ink-soft); padding:8px 16px; border-radius:20px; font-size:13.5px; cursor:pointer; white-space:nowrap; flex-shrink:0; }
+.filter-btn.active{ background:var(--ink); border-color:var(--ink); color:var(--paper); }
+.search-wrap{ position:relative; }
+.search-wrap input{ width:100%; padding:11px 14px 11px 36px; border:1px solid var(--line); border-radius:20px; background:var(--card); font-size:14px; font-family:inherit; color:var(--ink); }
+.search-wrap::before{ content:'⌕'; position:absolute; left:13px; top:50%; transform:translateY(-50%); color:var(--ink-soft); font-size:15px; }
+.empty-state{ padding:36px 18px; text-align:center; color:var(--ink-soft); font-size:14.5px; border:1px dashed var(--line); border-radius:var(--radius-sm); }
+@media (min-width:700px){ .menu-toolbar{ flex-direction:row; justify-content:space-between; align-items:center; } .search-wrap{ width:240px; } }
+
+.menu-grid{ display:grid; grid-template-columns:1fr; gap:18px; }
+.menu-card{ position:relative; background:var(--card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); }
+.menu-card .ph{ aspect-ratio:16/10; }
+.menu-card-body{ padding:16px 18px; }
+.menu-card-body .row{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+.menu-card-body h3{ font-size:17.5px; font-weight:500; }
+.menu-card-body .price{ font-size:13px; color:var(--brick); font-weight:600; white-space:nowrap; }
+.menu-card-body p{ font-size:13.5px; color:var(--ink-soft); margin:8px 0 10px; }
+@media (min-width:700px){ .menu-grid{ grid-template-columns:1fr 1fr; } }
+@media (min-width:1040px){ .menu-grid{ grid-template-columns:1fr 1fr 1fr; } }
+
+/* ---------- Modal / dish detail ---------- */
+.modal-overlay{ position:fixed; inset:0; background:rgba(20,16,10,0.6); display:none; align-items:center; justify-content:center; padding:16px; z-index:100; }
+.modal-overlay.open{ display:flex; }
+.modal{ background:var(--card); max-width:600px; width:100%; border-radius:var(--radius); max-height:88vh; box-shadow:var(--shadow); overflow-y:auto; }
+.modal .ph{ aspect-ratio:16/9; }
+.modal-body{ padding:22px; }
+.modal-body h2{ font-size:22px; margin-bottom:8px; }
+.modal-body .price{ color:var(--brick); font-weight:600; font-size:14px; margin-bottom:12px; }
+.modal-body p{ color:var(--ink-soft); font-size:14.5px; margin:0 0 14px; }
+.modal-meta{ font-size:12.5px; color:var(--ink-soft); border-top:1px solid var(--line); padding-top:12px; }
+.modal-close{ float:right; background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink-soft); padding:2px 6px; line-height:1; }
+
+/* ---------- Brand story ---------- */
+.story-photo{ aspect-ratio:4/3; }
+.story-copy h1{ font-size:clamp(30px,8vw,46px); line-height:1.12; letter-spacing:-0.01em; margin:14px 0 20px; }
+.story-copy h1 em{ font-style:italic; color:var(--brick); }
+.story-copy p{ font-size:16px; color:var(--ink-soft); margin:0 0 16px; max-width:56ch; }
+blockquote.story-quote{ margin:24px 0; padding:18px 0 18px 20px; border-left:2px solid var(--brick); }
+blockquote.story-quote p{ font-family:'Fraunces', serif; font-style:italic; font-size:19px; color:var(--ink); line-height:1.4; margin:0; }
+blockquote.story-quote cite{ font-style:normal; font-size:12.5px; color:var(--ink-soft); display:block; margin-top:8px; }
+.story-support{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:22px; }
+.support-photo{ aspect-ratio:1/1; }
+.about-stats{ display:flex; gap:0; margin-top:24px; padding-top:20px; border-top:1px solid var(--line); }
+.about-stats .stat{ flex:1; }
+@media (min-width:900px){
+  .story-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start; }
+  .story-photo{ aspect-ratio:4/5; }
+  .about-stats{ gap:32px; }
+  .about-stats .stat{ flex:none; }
+}
+
+/* ---------- Reviews ---------- */
+.reviews-page-head{ background:var(--paper-2); padding:32px 0; }
+.rating-summary{ display:flex; align-items:center; gap:14px; }
+.rating-summary .big{ font-family:'Fraunces', serif; font-size:38px; }
+.rating-summary .meta{ font-size:13px; color:var(--ink-soft); }
+.review-grid{ display:grid; grid-template-columns:1fr; gap:16px; margin-top:28px; }
+.review-card{ background:var(--card); border:1px solid var(--line); padding:22px; border-radius:var(--radius); box-shadow:var(--shadow-sm); }
+.review-card .stars{ display:block; margin-bottom:12px; }
+.review-card p{ font-size:15px; color:var(--ink-soft); margin:0 0 14px; line-height:1.6; }
+.review-card .who{ font-size:13px; font-weight:600; color:var(--ink); }
+.review-card .who span{ font-weight:400; color:var(--ink-soft); }
+@media (min-width:700px){ .review-grid{ grid-template-columns:1fr 1fr; } }
+@media (min-width:1040px){ .review-grid{ grid-template-columns:1fr 1fr 1fr; } }
+
+/* ---------- Home teaser rows (compact link-out cards) ---------- */
+.teaser-card{
+  display:block; text-decoration:none; color:var(--ink); background:var(--card); border:1px solid var(--line);
+  border-radius:var(--radius); padding:20px; box-shadow:var(--shadow-sm);
+}
+.teaser-card .teaser-kicker{ font-size:12.5px; color:var(--brick); font-weight:600; margin-bottom:6px; }
+.teaser-card h3{ font-size:19px; margin-bottom:8px; }
+.teaser-card p{ font-size:14px; color:var(--ink-soft); margin:0 0 10px; }
+.teaser-card .teaser-link{ font-size:13.5px; font-weight:600; color:var(--brick); }
+.teaser-reviews-strip{ display:flex; flex-direction:column; gap:12px; margin-top:16px; }
+.teaser-review{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius-sm); padding:16px; }
+.teaser-review p{ font-size:14px; color:var(--ink-soft); margin:8px 0 0; line-height:1.55; }
+
+/* ---------- FAQ ---------- */
+.faq-list{ max-width:760px; }
+.faq-item{ border-bottom:1px solid var(--line); }
+.faq-q{
+  width:100%; text-align:left; background:none; border:none; padding:17px 0; display:flex; justify-content:space-between;
+  align-items:center; gap:16px; font-size:15.5px; font-weight:500; color:var(--ink); cursor:pointer; font-family:inherit;
+}
+.faq-q .plus{ font-size:19px; color:var(--brick); transition:transform .2s; flex-shrink:0; }
+.faq-item.open .faq-q .plus{ transform:rotate(45deg); }
+.faq-a{ max-height:0; overflow:hidden; transition:max-height .25s ease; }
+.faq-a p{ margin:0 0 18px; font-size:14.5px; color:var(--ink-soft); max-width:62ch; line-height:1.6; }
+
+/* ---------- Location / hours / map ---------- */
+.info-block{ margin-bottom:20px; }
+.info-block h3{ font-size:13px; color:var(--ink-soft); font-weight:600; margin-bottom:8px; }
+.info-block a, .info-block p{ font-size:16px; text-decoration:none; margin:0; }
+.info-block a{ color:var(--ink); }
+.info-block a:hover{ color:var(--brick); }
+.address-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.copy-btn{ background:none; border:1px solid var(--line); border-radius:20px; padding:5px 12px; font-size:12px; cursor:pointer; color:var(--ink-soft); }
+.order-links{ display:flex; gap:10px; margin-top:8px; flex-wrap:wrap; }
+.order-links a{ border:1px solid var(--ink); padding:10px 16px; border-radius:var(--radius-sm); text-decoration:none; font-size:13.5px; font-weight:600; color:var(--ink); }
+.order-links a:hover{ background:var(--ink); color:var(--paper); }
+table.hours{ width:100%; border-collapse:collapse; font-size:14.5px; }
+table.hours td{ padding:10px 0; border-bottom:1px solid var(--line); }
+table.hours td:last-child{ text-align:right; color:var(--ink-soft); }
+table.hours tr.today td{ color:var(--brick); font-weight:600; }
+.map-embed{ border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-top:20px; aspect-ratio:16/11; }
+.map-embed iframe{ width:100%; height:100%; border:0; }
+.location-cta{ margin-top:20px; display:flex; flex-direction:column; gap:10px; }
+@media (min-width:900px){
+  .info-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; }
+  .location-cta{ flex-direction:row; }
+  .location-cta .btn{ width:auto; }
+}
+
+/* ---------- Footer ---------- */
+footer{ background:var(--olive-dark); color:rgba(243,237,224,0.8); padding:40px 0 90px; }
+.footer-grid{ display:grid; grid-template-columns:1fr; gap:28px; }
+footer h3{ font-family:'Fraunces', serif; font-size:18px; color:#f3ede0; font-weight:500; margin-bottom:10px; }
+footer .footer-brand{ display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+footer .footer-brand img{ width:44px; height:44px; border-radius:10px; object-fit:cover; flex-shrink:0; box-shadow:0 0 0 1px rgba(243,237,224,0.15); }
+footer .footer-brand h3{ margin-bottom:0; line-height:1.2; }
+
+footer h4{ font-size:12.5px; color:rgba(243,237,224,0.55); margin:0 0 12px; font-weight:600; }
+footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:9px; }
+footer a{ color:rgba(243,237,224,0.85); text-decoration:none; font-size:14px; }
+footer a:hover{ color:#c98b54; }
+footer p{ font-size:13.5px; color:rgba(243,237,224,0.65); max-width:32ch; }
+.footer-bottom{ margin-top:32px; padding-top:18px; border-top:1px solid rgba(243,237,224,0.15); font-size:12px; color:rgba(243,237,224,0.5); }
+@media (min-width:700px){ .footer-grid{ grid-template-columns:1.4fr 1fr 1fr 1fr; } footer{ padding-bottom:56px; } }
+
+/* ---------- Mobile bottom action bar (mobile only) ---------- */
+.mobile-bar{
+  display:flex; position:fixed; bottom:0; left:0; right:0; z-index:70; background:var(--card); border-top:1px solid var(--line);
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom)); box-shadow:0 -8px 24px -12px rgba(35,28,19,0.25);
+}
+.mobile-bar a, .mobile-bar button{
+  flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; background:none; border:none; font-family:inherit;
+  color:var(--ink-soft); font-size:10.5px; text-decoration:none; cursor:pointer; padding:6px 2px; border-radius:var(--radius-sm);
+}
+.mobile-bar .icon{ font-size:17px; }
+.mobile-bar .primary{ background:var(--brick); color:#fdf8ec; border-radius:var(--radius-sm); }
+.mobile-bar .primary .icon, .mobile-bar .primary span{ color:#fdf8ec; }
+body{ padding-bottom:70px; }
+@media (min-width:900px){ .mobile-bar{ display:none; } body{ padding-bottom:0; } }
+
+/* ---------- Back to top ---------- */
+.back-to-top{
+  position:fixed; bottom:78px; right:16px; width:42px; height:42px; border-radius:50%; background:var(--ink); color:var(--paper);
+  border:none; cursor:pointer; font-size:17px; display:flex; align-items:center; justify-content:center; z-index:60;
+  opacity:0; pointer-events:none; transform:translateY(8px); transition:opacity .2s, transform .2s;
+}
+.back-to-top.visible{ opacity:1; pointer-events:auto; transform:translateY(0); }
+@media (min-width:900px){ .back-to-top{ bottom:28px; } }
+
+.toast{
+  position:fixed; bottom:84px; left:50%; transform:translateX(-50%) translateY(8px); background:var(--ink); color:var(--paper);
+  padding:10px 18px; border-radius:20px; font-size:13px; z-index:130; opacity:0; pointer-events:none; transition:opacity .2s, transform .2s;
+}
+.toast.visible{ opacity:1; transform:translateX(-50%) translateY(0); }
+@media (min-width:900px){ .toast{ bottom:30px; } }
+
+/* ---------- Reveal on scroll (single, restrained) ---------- */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .5s ease, transform .5s ease; }
+  .reveal.revealed{ opacity:1; transform:translateY(0); }
+}
+@media (hover:hover){
+  .btn-primary:hover{ transform:translateY(-1px); }
+  .teaser-card:hover{ border-color:var(--brick); }
+}
+
+/* ---------- Instagram teaser strip ---------- */
+.instagram-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:20px; }
+.instagram-tile{ aspect-ratio:1/1; border-radius:var(--radius-sm); overflow:hidden; text-decoration:none; display:block; }
+.instagram-tile .ph{ width:100%; height:100%; border-radius:0; }
+@media (min-width:700px){ .instagram-grid{ grid-template-columns:repeat(6,1fr); } }
+
+/* ---------- Page header (non-home pages) ---------- */
+.page-header{ padding:32px 0 8px; }
+.page-header .eyebrow{ margin-bottom:10px; }
+.page-header h1{ font-size:clamp(28px,7vw,40px); line-height:1.14; }
+.page-header p{ margin-top:12px; color:var(--ink-soft); font-size:15.5px; max-width:56ch; }
+@media (min-width:900px){ .page-header{ padding:48px 0 12px; } .page-header h1{ font-size:clamp(32px,4vw,46px); } }
+
+/* ---------- Final CTA band ---------- */
+.cta-band{ background:var(--brick); color:#fdf8ec; text-align:center; }
+.cta-band h2{ color:#fdf8ec; font-size:clamp(24px,6vw,32px); }
+.cta-band p{ color:rgba(253,248,236,0.85); margin-top:10px; font-size:15px; }
+.cta-band .btn-primary{ background:#fdf8ec; color:var(--brick-dark); }
+.cta-band .btn-primary:hover{ background:#fff; }
+.cta-band .btn-ghost{ border-color:rgba(253,248,236,0.7); color:#fdf8ec; }
+.cta-band .btn-ghost:hover{ background:#fdf8ec; color:var(--brick-dark); }
+.cta-band .hero-ctas{ justify-content:center; }
+@media (min-width:600px){ .cta-band .hero-ctas{ flex-direction:row; } .cta-band .hero-ctas .btn{ width:auto; } }
+
+</style>
+
+</head>
+<body>
+<a class="skip-link" href="#main-content">Μετάβαση στο περιεχόμενο</a>
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><img src="assets/logo.jpg" alt="Λογότυπο Local Coffee House" width="38" height="38" loading="eager"></span>
+      <span class="brand-text">Local Coffee House</span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="index.html">Αρχική</a>
+      <a href="menu.html">Μενού</a>
+      <a href="about.html" aria-current="page">Η ιστορία μας</a>
+      <a href="reviews.html">Κριτικές</a>
+      <a href="location.html">Τοποθεσία & Ωράριο</a>
+      <button class="btn btn-primary btn-block nav-order" data-order-trigger>Κράτηση / Παραγγελία</button>
+    </nav>
+    <div class="nav-actions">
+      <button class="call-btn" data-order-trigger>Κράτηση</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Άνοιγμα μενού πλοήγησης" aria-controls="navLinks" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main-content">
+  <section class="story" id="about">
+    <div class="wrap story-grid">
+      <div class="reveal">
+        <div class="ph ph-hero story-photo" data-label="Ο χώρος μας" role="img" aria-label="Ο χώρος μας"></div>
+        <div class="story-support">
+          <div class="ph ph-dish support-photo" data-label="Ο πάγκος" role="img" aria-label="Ο πάγκος"></div>
+          <div class="ph ph-dish support-photo" data-label="Το μπλε ρόφημα" role="img" aria-label="Το μπλε ρόφημα"></div>
+        </div>
+      </div>
+      <div class="story-copy reveal">
+        <p class="eyebrow">Η ιστορία μας</p>
+        <h1>Δεν είναι απλώς καφές. <em>Είναι η γωνιά της γειτονιάς.</em></h1>
+        <p>Στο «Local Coffee House» δεν φτιάχνουμε μια καφετέρια-βιτρίνα. Φτιάχνουμε τον χώρο όπου θα ήθελες να καθίσεις για μια ήσυχη ώρα: αρωματικό καφέ, δροσερά ροφήματα και το signature μπλε ρόφημα που δημιούργησε ο Κωνσταντίνος.</p>
+        <blockquote class="story-quote">
+          <p>«Ο καφές που θα ήθελες να πίνεις κάθε μέρα, σε έναν χώρο που θυμάται τη γειτονιά.»</p>
+          <cite>— η φιλοσοφία πίσω από κάθε φλιτζάνι μας</cite>
+        </blockquote>
+        <p>Κάθε μέρα ετοιμάζουμε τον καφέ σας με προσοχή, σε έναν ήσυχο χώρο γεμάτο πράσινο στην Πλατεία Ελευθερίας της Παλλήνης. Όχι βιτρίνα. Όχι βιασύνη. Μόνο καλός καφές, καλή εξυπηρέτηση και μια γωνιά να καθίσεις.</p>
+        <div class="about-stats">
+          <div class="stat"><b data-counter data-target="4.6" data-decimals="1">0</b><span>βαθμολογία Google</span></div>
+          <div class="stat"><b data-counter data-target="216">0</b><span>κριτικές πελατών</span></div>
+          <div class="stat"><b data-counter data-target="7">0</b><span>μέρες/εβδ. ανοιχτά</span></div>
+        </div>
+        <div class="section-cta"><a href="menu.html" class="btn btn-ghost">Δες το μενού</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="instagram" style="background:var(--paper-2); padding-top:0;">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:0;">
+        <p class="eyebrow">Social</p>
+        <h2>Ακολούθησέ μας στο Instagram</h2>
+        <p><a href="https://www.instagram.com/localcafehouse/" target="_blank" rel="noopener" style="color:var(--brick); font-weight:600; text-decoration:none;">@localcafehouse</a> — στιγμιότυπα από τον χώρο μας και τα καθημερινά ροφήματα.</p>
+      </div>
+      <div class="instagram-grid" id="instagramGrid" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="assets/logo.jpg" alt="Λογότυπο Local Coffee House" width="44" height="44" loading="lazy">
+        <h3>Local Coffee<br>House</h3>
+      </div>
+      <p>Καφές και ροφήματα στην Πλατεία Ελευθερίας, Παλλήνη — φρέσκα κάθε μέρα.</p>
+    </div>
+    <div>
+      <h4>Πλοήγηση</h4>
+      <ul>
+        <li><a href="index.html">Αρχική</a></li>
+        <li><a href="menu.html">Μενού</a></li>
+        <li><a href="about.html">Η ιστορία μας</a></li>
+        <li><a href="reviews.html">Κριτικές</a></li>
+        <li><a href="location.html">Τοποθεσία &amp; Ωράριο</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Επικοινωνία</h4>
+      <ul>
+        <li><a href="tel:+302106666022">21 0666 6022</a></li>
+        <li><a href="https://www.instagram.com/localcafehouse/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.google.com/maps/dir/?api=1&destination=Feidippidou+25%2C+Pallini+153+51" target="_blank" rel="noopener">Οδηγίες</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Παραγγελία</h4>
+      <ul>
+        <li><a href="https://localcoffeehouse.widget.tabol.io" target="_blank" rel="noopener">Κράτηση (tabol.io)</a></li>
+        <li><a href="https://www.facebook.com/people/Local-Coffee-House/61564565263119/" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">© <span data-year></span> Local Coffee House — Φειδιππίδου 25, Παλλήνη 153 51</div>
+</footer>
+<div class="order-panel-overlay" id="orderOverlay">
+  <div class="order-panel" role="dialog" aria-modal="true" aria-labelledby="orderPanelTitle">
+    <h2 id="orderPanelTitle">Κράτηση / Παραγγελία</h2>
+    <p class="sub">Κάντε κράτηση online ή καλέστε μας απευθείας.</p>
+    <a class="order-option" href="https://localcoffeehouse.widget.tabol.io" target="_blank" rel="noopener">
+      <span><span class="oo-name">tabol.io</span><br><span class="oo-desc">Κράτηση τραπεζιού online</span></span>
+      <span class="oo-arrow">↗</span>
+    </a>
+    <a class="order-option phone" href="tel:+302106666022">
+      <span><span class="oo-name">Τηλέφωνο</span><br><span class="oo-desc">Πάρε τηλέφωνο και κλείσε τραπέζι</span></span>
+      <span class="oo-arrow">↗</span>
+    </a>
+    <button class="order-panel-close" id="orderPanelClose">Κλείσιμο</button>
+  </div>
+</div>
+<div class="mobile-bar">
+  <a href="tel:+302106666022"><span class="icon">📞</span><span>Κλήση</span></a>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=Feidippidou+25%2C+Pallini+153+51" target="_blank" rel="noopener"><span class="icon">📍</span><span>Οδηγίες</span></a>
+  <a href="menu.html"><span class="icon">☕</span><span>Μενού</span></a>
+  <button class="primary" data-order-trigger><span class="icon">📅</span><span>Κράτηση</span></button>
+</div>
+<button class="back-to-top" id="backToTop" aria-label="Επιστροφή στην κορυφή">↑</button>
+<div class="toast" id="toast"></div>
+<script>
+/* ============================================================================
+   CENTRAL CONFIG — every editable business fact lives here. Update the site
+   by editing this object; every page below renders from it. To connect a
+   real CMS/backend later, replace this literal with a fetch() call that
+   resolves to the same shape and leave the render functions untouched.
+   ============================================================================ */
+const CONFIG = {
+  dishes: {
+    freddocap: {
+      name: 'Freddo Cappuccino', category: 'καφέδες',
+      desc: 'Παγωμένος καπουτσίνο με πλούσιο, κρεμώδη αφρό — ο πιο ζητημένος καφές του μαγαζιού.',
+      tags: ['Δημοφιλές', 'Καφές'],
+      meta: 'Διαθέσιμο με φυτικό γάλα κατόπιν παραγγελίας. Καλέστε για λεπτομέρειες αλλεργιογόνων.'
+    },
+    mple: {
+      name: 'Μπλε Signature Ρόφημα', category: 'ροφήματα',
+      desc: 'Το εντυπωσιακό γαλάζιο ρόφημα που δημιούργησε ο Κωνσταντίνος — μοναδικό στην εμφάνιση και στη γεύση, ένα must για την πρώτη σας επίσκεψη.',
+      tags: ['Signature', 'Δημιουργία μπαρίστα'],
+      meta: 'Συνταγή του καταστήματος. Καλέστε για λεπτομέρειες αλλεργιογόνων.'
+    },
+    cheesecake: {
+      name: 'Cheesecake Σπιτικό', category: 'γλυκά',
+      desc: 'Κρεμώδες, σπιτικό cheesecake — ιδανικό συνοδευτικό στον καφέ σας μέσα στον ήσυχο, γεμάτο πράσινο χώρο μας.',
+      tags: ['Γλυκό', 'Φρέσκο κάθε μέρα'],
+      meta: 'Περιέχει γαλακτοκομικά και αυγό. Καλέστε για λεπτομέρειες αλλεργιογόνων.'
+    }
+  },
+  hours: [
+    { day: 1, label: 'Δευτέρα', open: '08:00', close: '23:00' },
+    { day: 2, label: 'Τρίτη', open: '08:00', close: '23:00' },
+    { day: 3, label: 'Τετάρτη', open: '08:00', close: '23:00' },
+    { day: 4, label: 'Πέμπτη', open: '08:00', close: '23:00' },
+    { day: 5, label: 'Παρασκευή', open: '08:00', close: '23:00' },
+    { day: 6, label: 'Σάββατο', open: '08:00', close: '23:00' },
+    { day: 0, label: 'Κυριακή', open: '08:00', close: '23:00' }
+  ],
+  reviews: [
+    { text: 'Πήγα για ένα ρόφημα και δοκίμασα το εντυπωσιακό γαλάζιο ρόφημα που έφτιαξε ο Κωνσταντίνος — κάτι πραγματικά διαφορετικό, σίγουρα να το δοκιμάσετε.', author: 'Ανδριάνα Ν.', source: 'κριτική Google' },
+    { text: 'Πολύ ωραίο, ήσυχο μαγαζί με πράσινο παντού. Καλός καφές και καλή εξυπηρέτηση.', author: 'Design Group', source: 'κριτική Google' },
+    { text: 'Ο καλύτερος καφές στην Παλλήνη με διαφορά, προσεγμένος απ’ όλες τις απόψεις — είτε τον πάρεις στο μαγαζί είτε παραγγείλεις.', author: 'Παναγιώτης Σ.', source: 'κριτική Google' }
+  ],
+  ratingValue: 4.6,
+  reviewCount: 216,
+  instagramTiles: ['Ο καφές της ημέρας', 'Το μπλε ρόφημα', 'Η γωνιά μας με το πράσινο', 'Γλυκά ταψιού', 'Πίσω από τον πάγκο', 'Local Coffee House']
+};
+
+/* Not implemented on purpose (out of current scope): online cart/checkout,
+   table reservations, loyalty program, newsletter capture, push
+   notifications, customer accounts, admin dashboard, AI food assistant.
+   Page/component boundaries and this config shape are built so each of
+   those can be added later without a rewrite. */
+
+/* ================= Toast ================= */
+const toastEl = document.getElementById('toast');
+let toastTimer;
+function showToast(msg){
+  if (!toastEl) return;
+  toastEl.textContent = msg;
+  toastEl.classList.add('visible');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toastEl.classList.remove('visible'), 2200);
+}
+
+/* ================= Nav toggle (mobile slide-down panel) ================= */
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+}
+
+/* ================= Accessible dialog helpers (focus in, trap Tab, focus back on close) ================= */
+let lastFocused = null;
+function focusableIn(container){
+  return [...container.querySelectorAll('a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])')]
+    .filter(el => el.offsetParent !== null);
+}
+function openDialogOverlay(overlayEl, dialogEl){
+  lastFocused = document.activeElement;
+  overlayEl.classList.add('open');
+  const focusables = focusableIn(dialogEl);
+  (focusables[0] || dialogEl).focus({ preventScroll:true });
+}
+function closeDialogOverlay(overlayEl){
+  overlayEl.classList.remove('open');
+  if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus({ preventScroll:true });
+}
+function trapTabIfOpen(e){
+  if (e.key !== 'Tab') return;
+  const openOverlay = document.querySelector('.modal-overlay.open, .order-panel-overlay.open');
+  if (!openOverlay) return;
+  const dialogEl = openOverlay.querySelector('[role="dialog"]') || openOverlay;
+  const focusables = focusableIn(dialogEl);
+  if (focusables.length === 0) return;
+  const first = focusables[0], last = focusables[focusables.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+document.addEventListener('keydown', trapTabIfOpen);
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  document.querySelectorAll('.modal-overlay.open, .order-panel-overlay.open').forEach(closeDialogOverlay);
+});
+
+/* ================= Order panel (shared across every page) ================= */
+const orderOverlay = document.getElementById('orderOverlay');
+if (orderOverlay) {
+  const orderDialog = orderOverlay.querySelector('.order-panel');
+  document.querySelectorAll('[data-order-trigger]').forEach(btn => {
+    btn.addEventListener('click', () => openDialogOverlay(orderOverlay, orderDialog));
+  });
+  const orderClose = document.getElementById('orderPanelClose');
+  if (orderClose) orderClose.addEventListener('click', () => closeDialogOverlay(orderOverlay));
+  orderOverlay.addEventListener('click', e => { if (e.target === orderOverlay) closeDialogOverlay(orderOverlay); });
+}
+
+/* ================= Reveal on scroll (single, restrained observer) ================= */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
+function observeReveals(root = document){
+  root.querySelectorAll('.reveal:not(.revealed)').forEach(el => revealObserver.observe(el));
+}
+observeReveals();
+
+/* ================= Back to top ================= */
+const backToTop = document.getElementById('backToTop');
+if (backToTop) {
+  document.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', document.documentElement.scrollTop > 500);
+  }, { passive:true });
+  backToTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+}
+
+/* ================= OpeningStatus badge + OpeningHours table (both driven by CONFIG.hours) ================= */
+function nextOpenDay(day){
+  for (let i = 1; i <= 7; i++) {
+    const candidate = CONFIG.hours.find(h => h.day === (day + i) % 7);
+    if (candidate && candidate.open) return candidate;
+  }
+  return null;
+}
+function renderHoursTable(){
+  const hoursTable = document.getElementById('hoursTable');
+  if (!hoursTable) return;
+  hoursTable.innerHTML = CONFIG.hours.map(h =>
+    `<tr data-day="${h.day}"><td>${h.label}</td><td>${h.open ? `${h.open} – ${h.close}` : 'Κλειστά'}</td></tr>`
+  ).join('');
+}
+function updateStatus(){
+  const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Athens' }));
+  const day = now.getDay();
+  const minutes = now.getHours() * 60 + now.getMinutes();
+  const todayHours = CONFIG.hours.find(h => h.day === day);
+  const dot = document.getElementById('statusDot');
+  const text = document.getElementById('statusText');
+  if (!dot || !text) return;
+  dot.classList.remove('closed', 'soon');
+
+  if (todayHours && todayHours.open) {
+    const [oh, om] = todayHours.open.split(':').map(Number);
+    const [ch, cm] = todayHours.close.split(':').map(Number);
+    const open = oh * 60 + om, close = ch * 60 + cm;
+    if (minutes >= open && minutes < close) {
+      text.textContent = `Ανοιχτά τώρα · σήμερα ${todayHours.open}–${todayHours.close}`;
+    } else if (minutes < open && (open - minutes) <= 45) {
+      dot.classList.add('soon');
+      text.textContent = `Ανοίγουμε σύντομα · στις ${todayHours.open}`;
+    } else if (minutes < open) {
+      dot.classList.add('closed');
+      text.textContent = `Κλειστά τώρα · ανοίγουμε ${todayHours.open}`;
+    } else {
+      dot.classList.add('closed');
+      const next = nextOpenDay(day);
+      text.textContent = next ? `Κλειστά τώρα · ανοίγουμε ${next.label.toLowerCase()} ${next.open}` : 'Κλειστά τώρα';
+    }
+  } else {
+    dot.classList.add('closed');
+    const next = nextOpenDay(day);
+    text.textContent = next ? `Κλειστά σήμερα · ανοίγουμε ${next.label} ${next.open}` : 'Κλειστά σήμερα';
+  }
+  document.querySelectorAll('#hoursTable tr').forEach(tr => {
+    tr.classList.toggle('today', Number(tr.dataset.day) === day);
+  });
+}
+renderHoursTable();
+updateStatus();
+setInterval(updateStatus, 60000);
+
+/* ================= Animated counters (home + about) ================= */
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const counters = document.querySelectorAll('[data-counter]');
+if (counters.length) {
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseFloat(el.dataset.target);
+      const decimals = Number(el.dataset.decimals || 0);
+      if (prefersReduced) {
+        el.textContent = target.toFixed(decimals).replace('.', ',');
+        counterObserver.unobserve(el);
+        return;
+      }
+      const duration = 800;
+      const start = performance.now();
+      function tick(now){
+        const p = Math.min(1, (now - start) / duration);
+        const val = target * (1 - Math.pow(1 - p, 3));
+        el.textContent = val.toFixed(decimals).replace('.', ',');
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold:0.6 });
+  counters.forEach(c => counterObserver.observe(c));
+}
+
+/* ================= Favorites (client-side, persisted; used on menu page) ================= */
+const FAV_KEY = 'localcoffeehouse_favorites';
+function getFavs(){
+  try { return JSON.parse(localStorage.getItem(FAV_KEY)) || []; } catch(e){ return []; }
+}
+function toggleFav(key){
+  let favs = getFavs();
+  favs = favs.includes(key) ? favs.filter(f => f !== key) : [...favs, key];
+  try { localStorage.setItem(FAV_KEY, JSON.stringify(favs)); } catch(e){}
+  return favs;
+}
+function favBtnHTML(key, name){
+  const isActive = getFavs().includes(key);
+  const label = isActive ? `Αφαίρεση «${name}» από τα αγαπημένα` : `Προσθήκη «${name}» στα αγαπημένα`;
+  return `<button class="fav-btn${isActive ? ' active' : ''}" data-fav="${key}" data-fav-name="${name}" aria-pressed="${isActive}" aria-label="${label}" type="button">${isActive ? '♥' : '♡'}</button>`;
+}
+document.addEventListener('click', e => {
+  const favBtn = e.target.closest('[data-fav]');
+  if (!favBtn) return;
+  const key = favBtn.dataset.fav;
+  const favs = toggleFav(key);
+  document.querySelectorAll(`[data-fav="${key}"]`).forEach(b => {
+    const isActive = favs.includes(key);
+    const name = b.dataset.favName || '';
+    b.classList.toggle('active', isActive);
+    b.textContent = isActive ? '♥' : '♡';
+    b.setAttribute('aria-pressed', String(isActive));
+    b.setAttribute('aria-label', isActive ? `Αφαίρεση «${name}» από τα αγαπημένα` : `Προσθήκη «${name}» στα αγαπημένα`);
+  });
+  if (typeof renderMenu === 'function' && typeof activeFilter !== 'undefined' && activeFilter === 'favorites') renderMenu();
+});
+
+/* ================= Dish modal (used on home + menu pages) ================= */
+const dishModalOverlay = document.getElementById('modalOverlay');
+if (dishModalOverlay) {
+  const modalDialog = dishModalOverlay.querySelector('.modal');
+  window.openDishModal = function(key){
+    const d = CONFIG.dishes[key];
+    if (!d) return;
+    document.getElementById('modalPhoto').dataset.label = d.name;
+    document.getElementById('modalTitle').textContent = d.name;
+    document.getElementById('modalPrice').textContent = 'Τιμή: ρωτήστε μας κατά την παραγγελία';
+    document.getElementById('modalDesc').textContent = d.desc;
+    document.getElementById('modalMeta').textContent = d.meta;
+    openDialogOverlay(dishModalOverlay, modalDialog);
+  };
+  document.getElementById('modalClose').addEventListener('click', () => closeDialogOverlay(dishModalOverlay));
+  dishModalOverlay.addEventListener('click', e => { if (e.target === dishModalOverlay) closeDialogOverlay(dishModalOverlay); });
+  document.addEventListener('click', e => {
+    const trigger = e.target.closest('[data-modal]');
+    if (trigger) window.openDishModal(trigger.dataset.modal);
+  });
+  document.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('[data-modal][role="button"]')) {
+      e.preventDefault();
+      window.openDishModal(e.target.closest('[data-modal]').dataset.modal);
+    }
+  });
+}
+
+/* ================= FAQ accordion (used on location page) ================= */
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ================= Copy address (location page) ================= */
+const copyAddressBtn = document.getElementById('copyAddressBtn');
+if (copyAddressBtn) {
+  copyAddressBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText('Φειδιππίδου 25, Παλλήνη 153 51');
+      showToast('Η διεύθυνση αντιγράφηκε');
+    } catch (e) { showToast('Δεν ήταν δυνατή η αντιγραφή'); }
+  });
+}
+
+/* ================= Footer year ================= */
+document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+
+
+/* ================= COMPONENT: InstagramSection (static placeholders — no fake live feed) ================= */
+(function(){
+  const igGrid = document.getElementById('instagramGrid');
+  if (!igGrid) return;
+  igGrid.innerHTML = CONFIG.instagramTiles.map(label => `
+    <a class="instagram-tile reveal" href="https://www.instagram.com/localcafehouse/" target="_blank" rel="noopener" aria-label="Δες στο Instagram: ${label} (ανοίγει σε νέα καρτέλα)">
+      <div class="ph ph-dish" aria-hidden="true" data-label="${label}"></div>
+    </a>`).join('');
+  observeReveals(igGrid);
+})();
+
+</script>
+</body>
+</html>
